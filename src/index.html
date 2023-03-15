@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Today I Learned!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
     <header>
@@ -12,7 +20,7 @@
       <h1>Today I Learned</h1>
       <button>Share a fact</button>
     </header>
-    <form>
+    <form class="fact-form">
       <input type="text" placeholder="Share a fact with the world..." />
       <span>200</span>
       <input type="text" placeholder="Trustworthy source..." />
@@ -22,6 +30,7 @@
         <option value="science">Science</option>
         <option value="finance">Finance</option>
       </select>
+      <button>Post</button>
     </form>
     <main>
       <aside>
@@ -34,11 +43,11 @@
       <section>
         <ul>
           <li>
-            <p>
+            <p class="fact">
               React is being developed by Meta (formerly facebook)
               <!--target="_blank" opens a new tab-->
               <a href="https://opensource.fb.com/" target="_blank">(Source)</a>
-              <span>#technology#</span>
+              <span class="tag">#technology#</span>
             </p>
             <div>
               <button>👍 <strong>24</strong></button>
@@ -47,7 +56,7 @@
             </div>
           </li>
           <li>
-            <p>
+            <p class="fact">
               Millennial dads spend 3 times as much time with their kids than
               their fathers spent with them. In 1982, 43% of fathers had never
               changed a diaper. Today, that number is down to 3%
@@ -55,7 +64,7 @@
                 href="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
                 target="_blank"
                 >(Source)</a
-              ><span>#society#</span>
+              ><span class="tag">#society#</span>
             </p>
             <div>
               <button>👍 <strong>24</strong></button>
@@ -64,13 +73,12 @@
             </div>
           </li>
           <li>
-            <p>
+            <p class="fact">
               Lisbon is the capital of Portugal<a
                 href="https://en.wikipedia.org/wiki/Lisbon"
                 target="_blank"
                 >(Source)</a
-              ><span>#society#</span>
-              <button></button>
+              ><span class="tag">#society#</span>
             </p>
           </li>
         </ul>
