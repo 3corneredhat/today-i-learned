@@ -11,6 +11,16 @@ body {
 }
 .header {
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  /* Adds a gap to the logo using
+  flexbox items. */
+  gap: 16px;
 }
 .fact-form {
   background-color: #44403c;
@@ -22,6 +32,12 @@ h1 {
   font-size: 42px;
   text-transform: uppercase;
   font-family: "Coiny", sans-serif;
+  /* Coiny has an issue that there is a space
+  added to the bottom of the characters. We
+  add a line height of 1 and a margin at the 
+  top of 6 pixels so that it appears centered.*/
+  line-height: 1;
+  margin-top: 6px;
 }
 .fact {
   font-size: 20px;
