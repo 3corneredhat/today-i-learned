@@ -45,10 +45,14 @@ h1 {
   background-color: #44403c;
   margin-bottom: 16px;
   padding: 16px 24px;
+  /*Negative length brings together
+  elements or letters in this case */
   letter-spacing: -1px;
 
   display: flex;
   align-items: center;
+  /* This adds space between elements in a
+  flex box.*/
   gap: 24px;
 }
 .tag {
