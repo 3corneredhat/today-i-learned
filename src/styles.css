@@ -82,11 +82,20 @@ h1 {
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 100px;
 }
 .vote-buttons {
   margin-left: auto;
 }
-
+.vote-buttons button {
+  border: none;
+  background-color: #78716c;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: inherit;
+  font-family: inherit;
+}
 ul {
   list-style: none;
 }
@@ -111,7 +120,9 @@ ul {
   padding: 16px 0 13px; /* needed for Coiny */
   background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
   color: inherit; /* inherits text color from body element*/
+  border-radius: 100px;
   transition: 0.3s;
+  cursor: pointer;
 }
 .btn:hover {
   /* Increases the size of the button when govering over */
