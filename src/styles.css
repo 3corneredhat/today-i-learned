@@ -86,6 +86,13 @@ h1 {
 }
 .vote-buttons {
   margin-left: auto;
+  /* This does not allow the 
+  flex element to shrink when
+  setting to 0.*/
+  flex-shrink: 0;
+
+  display: flex;
+  gap: 8px;
 }
 .vote-buttons button {
   border: none;
@@ -95,7 +102,14 @@ h1 {
   border-radius: 100px;
   color: inherit;
   font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
+.vote-buttons button:hover {
+  background-color: #292524;
+}
+
 ul {
   list-style: none;
 }
