@@ -11,6 +11,11 @@ body {
   padding: 40px 64px;
 }
 
+.hidden {
+  /* '!important' is used to give precedence */
+  display: none !important;
+}
+
 /*Main Layout*/
 .container {
   /*max-wdth makes sure the container 
