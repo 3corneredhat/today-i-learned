@@ -12,3 +12,25 @@ btn.addEventListener("click", function () {
     btn.textContent = "Share a fact";
   }
 });
+
+/* 'let' is for variables that are able to be updated
+later*/
+let votesInteresting = 23;
+let votesMindblowing = 5;
+
+/* 'const' are for variables that will remain constant
+or will not be changed later on */
+const text = "Lisbon is the capital of Portugal";
+
+votesInteresting = votesInteresting + 1;
+votesInteresting++;
+console.log(votesInteresting);
+
+let totalUpvotes = votesInteresting + votesMindblowing;
+
+console.log("Upvotes:", totalUpvotes);
+
+let votesFalse = 4;
+const isCorrect = votesFalse < totalUpvotes;
+
+console.log(isCorrect);
