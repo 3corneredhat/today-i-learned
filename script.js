@@ -49,8 +49,17 @@ function calcFactAge(year) {
 const age1 = calcFactAge(2015);
 console.log(age1);
 console.log(calcFactAge(2052));
+//Arrow function
+const calcFactAge2 = (year) =>
+  year <= new Date().getFullYear()
+    ? new Date().getFullYear() - year
+    : `Impossible year. Year needs to be less 
+  or equal ${new Date().getFullYear()}`;
 
-let votesInteresting = 20;
+console.log(calcFactAge2(2015));
+console.log(calcFactAge2(2037));
+
+/*let votesInteresting = 20;
 let votesMindblowing = 20;
 
 if (votesInteresting === votesMindblowing) {
@@ -85,9 +94,11 @@ console.log(upperText);
 
 /*This is a template literal and needs to 
 be in this format: "${variable}"*/
+
+/*
 const str = `The current fact is "${text}". It is "${calcFactAge(
   2015
 )}" years old. It is probably ${
   totalUpvotes > votesFalse ? "correct" : "not true"
 }`;
-console.log(str);
+console.log(str);*/
