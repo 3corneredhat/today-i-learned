@@ -34,3 +34,15 @@ let votesFalse = 4;
 const isCorrect = votesFalse < totalUpvotes;
 
 console.log(isCorrect);
+
+/*Lecture 36*/
+
+function calcFactAge(year) {
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - year;
+  return age;
+}
+
+const age1 = calcFactAge(2015);
+console.log(age1);
+console.log(calcFactAge(1190));
