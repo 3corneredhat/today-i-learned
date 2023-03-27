@@ -135,3 +135,13 @@ const { category, isCorrect } = factObj;
 console.log(category);
 
 console.log(factObj.createSummary());
+
+//iterate over array
+[2, 4, 6, 8].forEach(function (el) {
+  console.log(el);
+});
+//map method
+const times10 = [2, 4, 6, 8].map(function (el) {
+  return el * 10;
+});
+console.log(times10);
