@@ -36,7 +36,7 @@ btn.addEventListener("click", function () {
 // console.log(isCorrect);
 
 /*Lecture 36*/
-
+/*
 function calcFactAge(year) {
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;
@@ -57,7 +57,7 @@ const calcFactAge2 = (year) =>
   or equal ${new Date().getFullYear()}`;
 
 console.log(calcFactAge2(2015));
-console.log(calcFactAge2(2037));
+console.log(calcFactAge2(2037));*/
 
 /*let votesInteresting = 20;
 let votesMindblowing = 20;
@@ -102,3 +102,16 @@ const str = `The current fact is "${text}". It is "${calcFactAge(
   totalUpvotes > votesFalse ? "correct" : "not true"
 }`;
 console.log(str);*/
+
+const fact = ["Lisbon is the capital of Portugal", 2015, true, 69, "yoo-hoo"];
+console.log(fact);
+console.log(fact.length);
+console.log(fact[fact.length - 1]);
+
+//destructuring method of initializing variables
+const [text, createdIn] = fact;
+console.log(createdIn);
+
+//spreading method will unpack an array
+const newFact = [...fact, "society"];
+console.log(newFact);
