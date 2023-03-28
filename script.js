@@ -2,6 +2,11 @@ console.log("Hello World!");
 
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
+const factsList = document.querySelector(".facts-list");
+console.dir(btn);
+
+//This line clears the fact list
+factsList.innerHTML = "";
 
 btn.addEventListener("click", function () {
   if (form.classList.contains("hidden")) {
@@ -103,6 +108,7 @@ const str = `The current fact is "${text}". It is "${calcFactAge(
 }`;
 console.log(str);*/
 
+/*
 const fact = ["Lisbon is the capital of Portugal", 2015, true, 69, "yoo-hoo"];
 console.log(fact);
 console.log(fact.length);
@@ -204,4 +210,4 @@ function calcFactAge(year) {
 }
 const factAges = initialFacts.map((el) => calcFactAge(el.createdIn));
 console.log(factAges);
-console.log(factAges.join("-"));
+console.log(factAges.join("-"));*/
