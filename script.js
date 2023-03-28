@@ -52,6 +52,26 @@ console.dir(btn);
 //This line clears the fact list
 factsList.innerHTML = "";
 
+//Load data from Supabase
+loadFacts();
+async function loadFacts() {
+  const res = await fetch(
+    //await will pause the exec. of code until a promise is returned
+    //await can only be used on functions that return promises
+    "https://xtlotfjpzlkaqqjpwydr.supabase.co/rest/v1/facts",
+    {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bG90ZmpwemxrYXFxanB3eWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk2MDIxNTAsImV4cCI6MTk5NTE3ODE1MH0.8xZR-EVQYhM7vtfaPbpS_BUFaSVGR2Gu10ABP5NeiiI",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0bG90ZmpwemxrYXFxanB3eWRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk2MDIxNTAsImV4cCI6MTk5NTE3ODE1MH0.8xZR-EVQYhM7vtfaPbpS_BUFaSVGR2Gu10ABP5NeiiI",
+      },
+    }
+  );
+  const data = await res.json();
+  createFactsList(data);
+}
+
 function createFactsList(dataArray) {
   const htmlArr = dataArray.map(
     (fact) => `<li class="fact">
