@@ -82,12 +82,15 @@ function App() {
     </>
   );
 }
+
 function NewFactForm() {
   return <form className="fact-form">Fact form</form>;
 }
+
 function CategoryFilter() {
   return <aside> Category filter </aside>;
 }
+
 function FactList() {
   const facts = initialFacts;
   return (
@@ -96,35 +99,54 @@ function FactList() {
         {
           //loop over the facts using the map method.
           facts.map((fact) => (
-            <li key={fact.id} className="fact">
-              <p>
-                {fact.text}
-                <a className="source" href={fact.source} target="_blank">
-                  (Source)
-                </a>
-              </p>
-              {/* We use nested curly braces for the style: 1 set 
-              to indicate Javascript and 1 set to indicate an object. */}
-              <span
-                className="tag"
-                style={{
-                  backgroundColor: CATEGORIES.find(
-                    (cat) => cat.name === fact.category
-                  ).color,
-                }}
-              >
-                {fact.category}
-              </span>
-              <div className="vote-buttons">
-                <button>👍 {fact.votesInteresting}</button>
-                <button>🤯 {fact.votesMindblowing}</button>
-                <button>⛔️ {fact.votesFalse}</button>
-              </div>
-            </li>
+            /*For each fact object, create a Fact component
+            to be rendered. We give it the 
+             */
+            <Fact key={fact.id} fact={fact} />
           ))
         }
       </ul>
+      <p>There are {facts.length} facts in the database. Add your own!</p>
     </section>
+  );
+}
+//https://react.dev/learn/passing-props-to-a-component
+
+/*
+The fact function creates the fact component. It is a 
+child component of FactList.
+@param 'fact' is each item in the initialFacts 
+        array. Data passed as an argument is
+         referred to as 'props' object.
+@return a list element or fact component.   */
+function Fact({ fact }) {
+  /*Destructuring the object that is passed so that
+  it is easier to get/call it's attributes */
+  return (
+    <li className="fact">
+      <p>
+        {fact.text}
+        <a className="source" href={fact.source} target="_blank">
+          (Source)
+        </a>
+      </p>
+      {/* We use nested curly braces for the style: 1 set 
+              to indicate Javascript and 1 set to indicate an object. */}
+      <span
+        className="tag"
+        style={{
+          backgroundColor: CATEGORIES.find((cat) => cat.name === fact.category)
+            .color,
+        }}
+      >
+        {fact.category}
+      </span>
+      <div className="vote-buttons">
+        <button>👍 {fact.votesInteresting}</button>
+        <button>🤯 {fact.votesMindblowing}</button>
+        <button>⛔️ {fact.votesFalse}</button>
+      </div>
+    </li>
   );
 }
 export default App;
