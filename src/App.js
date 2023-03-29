@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./styles.css";
 /*In react, everything is JS. The code we write is JS
 and HTML is inserted into it. We are inserting everything
@@ -47,7 +48,20 @@ const initialFacts = [
     createdIn: 2015,
   },
 ];
+function Counter() {
+  //Use state returns a count and a function
+  const [count, setCount] = useState(8);
 
+  return (
+    <div>
+      <span style={{ fonstSize: "40px" }}>{count}</span>
+      {/* The callback function to setCount increments */}
+      <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
+        +1
+      </button>
+    </div>
+  );
+}
 //Uppercase letter of a function indicates a component.
 function App() {
   /*The following is not HTML, it is JSX, a syntax that
@@ -74,6 +88,7 @@ function App() {
         </div>
         <button className="btn btn-large btn-open">Share a fact</button>
       </header>
+      <Counter />
       <NewFactForm />
       <main className="main">
         <CategoryFilter />
