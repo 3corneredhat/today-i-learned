@@ -48,6 +48,7 @@ const initialFacts = [
     createdIn: 2015,
   },
 ];
+
 function Counter() {
   //Use state returns a count and a function
   const [count, setCount] = useState(8);
@@ -75,34 +76,12 @@ function App() {
   // 1. defining a state variable
   const [showForm, setShowForm] = useState(false);
 
-  const appTitle = "Today I Learned";
   return (
     /* '<>' is called a fragment, we used it because without it
     we return two objects. This packages the objects into one 
     without adding unneccessary elements to the html.*/
     <>
-      {/* HEADER */}
-      <header className="header">
-        <div className="logo">
-          <img
-            src="logo.png"
-            height="68"
-            width="68"
-            alt="Today I learned Logo"
-          />
-          <h1>{appTitle}</h1>
-        </div>
-        <button
-          className="btn btn-large btn-open"
-          // 3. Update the state variable.
-          // With onClick you always need to give is a function,
-          // thus we use the arrow function.
-          onClick={() => setShowForm((show) => !show)}
-        >
-          Share a fact
-        </button>
-      </header>
-
+      <Header showForm={showForm} setShowForm={setShowForm} />
       {/* 2. Using the state variable. */}
       {showForm ? <NewFactForm /> : null}
 
@@ -113,7 +92,26 @@ function App() {
     </>
   );
 }
-
+function Header({ showForm, setShowForm }) {
+  const appTitle = "Today I Learned";
+  return (
+    <header className="header">
+      <div className="logo">
+        <img src="logo.png" height="68" width="68" alt="Today I learned Logo" />
+        <h1>{appTitle}</h1>
+      </div>
+      <button
+        className="btn btn-large btn-open"
+        // 3. Update the state variable.
+        // With onClick you always need to give is a function,
+        // thus we use the arrow function.
+        onClick={() => setShowForm((show) => !show)}
+      >
+        {showForm ? "Close" : "Share a fact"}
+      </button>
+    </header>
+  );
+}
 function NewFactForm() {
   return <form className="fact-form">Fact form</form>;
 }
