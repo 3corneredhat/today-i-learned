@@ -69,6 +69,12 @@ function App() {
   In JSX we cannont use the word 'class' as it is a reserved word.
   JSX expressions must have one parent element.
   React will look in Public folder for items.*/
+
+  // Whenever we want to change something on the screem
+  // we need to use a state variable.
+  // 1. defining a state variable
+  const [showForm, setShowForm] = useState(false);
+
   const appTitle = "Today I Learned";
   return (
     /* '<>' is called a fragment, we used it because without it
@@ -86,10 +92,20 @@ function App() {
           />
           <h1>{appTitle}</h1>
         </div>
-        <button className="btn btn-large btn-open">Share a fact</button>
+        <button
+          className="btn btn-large btn-open"
+          // 3. Update the state variable.
+          // With onClick you always need to give is a function,
+          // thus we use the arrow function.
+          onClick={() => setShowForm((show) => !show)}
+        >
+          Share a fact
+        </button>
       </header>
-      <Counter />
-      <NewFactForm />
+
+      {/* 2. Using the state variable. */}
+      {showForm ? <NewFactForm /> : null}
+
       <main className="main">
         <CategoryFilter />
         <FactList />
