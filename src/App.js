@@ -63,6 +63,7 @@ function Counter() {
     </div>
   );
 }
+
 //Uppercase letter of a function indicates a component.
 function App() {
   /*The following is not HTML, it is JSX, a syntax that
@@ -92,6 +93,7 @@ function App() {
     </>
   );
 }
+
 function Header({ showForm, setShowForm }) {
   const appTitle = "Today I Learned";
   return (
@@ -112,16 +114,48 @@ function Header({ showForm, setShowForm }) {
     </header>
   );
 }
+function isValidHttpUrl(string) {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
 function NewFactForm() {
   //create new states to update the input field of the form
   const [text, setText] = useState("");
-  const [source, setSource] = useState("");
+  const [source, setSource] = useState("http://example.com");
   const [category, setCategory] = useState("");
   const textLength = text.length;
 
   function handleSubmit(e) {
+    // 1. prevent broswer reload
     e.preventDefault();
     console.log(text, source, category);
+
+    // 2.check if data is valid and if so, create a new fact.
+    if (text && isValidHttpUrl(source) && category && textLength <= 200)
+      console.log("there is data");
+    const newFact = {
+      id: Math.round(Math.random() * 1000000000),
+      text,
+      source,
+      category,
+      votesInteresting: 0,
+      votesMindblowing: 0,
+      votesFalse: 0,
+      createdIn: new Date().getCurrentYear(),
+    };
+    // 3. create a new fact object
+
+    // 4. Add the new fact to the UI: add the fact to state.
+
+    // 5. Reset input fields
+
+    // 6. Close the form
   }
 
   return (
