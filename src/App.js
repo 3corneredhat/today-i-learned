@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import supabase from "./supabase";
+
 import "./styles.css";
 /*In react, everything is JS. The code we write is JS
 and HTML is inserted into it. We are inserting everything
@@ -79,7 +81,16 @@ function App() {
 
   //State for facts that is used for submitting a new fact and
   //for displaying stored facts.
-  const [facts, setFacts] = useState(initialFacts);
+  const [facts, setFacts] = useState([]);
+
+  useEffect(function () {
+    async function getFacts() {
+      const { data: facts, error } = await supabase.from("facts").select("*");
+      setFacts(facts);
+    }
+    getFacts();
+  }, []);
+
   return (
     /* '<>' is called a fragment, we used it because without it
     we return two objects. This packages the objects into one 
