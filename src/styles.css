@@ -149,6 +149,9 @@ with a width less thatn 1200px.*/
   background-color: #292524;
 }
 
+.vote-buttons button:disabled {
+  background-color: #44403c;
+}
 ul {
   list-style: none;
 }
